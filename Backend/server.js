@@ -17,8 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "https://talkify-t4t1.onrender.com",
+    origin: "https://talkify-t4t1.onrender.com || http://localhost:5173",
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
  
@@ -31,7 +33,7 @@ const __dirname = path.resolve();
 if(process.env.NODE_ENV === "production"){
 app.use(express.static(path.join(__dirname,"../Frontend/dist")));
 app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"Frontend","dist","index.html"));
+    res.sendFile(path.join(__dirname,"../Frontend/dist","index.html"));
 });
 }
 

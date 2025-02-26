@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { authFailure, authStart, authSuccess, resetAuth } from '../slices/authSlice';
 import { getChats, getUsers, getUsersFailure, sendChats, setLoadingStates, setSelectedUser } from '../slices/chatSlice';
 
-const API = process.env.NODE_ENV === "production" ? "https://talkify-t4t1.onrender.com/api/" : "http://localhost:3000/api/";
+const API = process.env.NODE_ENV === "production" ? "https://talkify-t4t1.onrender.com/api" : "http://localhost:3000/api";
 
 const api = axios.create({
     baseURL: API,
