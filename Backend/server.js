@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://talkify-t4t1.onrender.com/",
     credentials: true,
   })
 );
@@ -28,10 +28,12 @@ app.use("/api/user",userRoutes);
 app.use("/api/message",messageRoutes);
 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname,"/Frontend/dist")));
+if(process.env.NODE_ENV === "production"){
+app.use(express.static(path.join(__dirname,"../Frontend/dist")));
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"Frontend","dist","index.html"));
 });
+}
 
 server.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT}`);
