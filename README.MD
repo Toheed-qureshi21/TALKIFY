@@ -24,6 +24,8 @@ Clone the repository and install dependencies:
 git clone https://github.com/Toheed-qureshi21/TALKIFY.git
 cd talkify
 npm install
+cd Frontend
+npm install
 ```
 
 ## 🔑 Environment Variables  
