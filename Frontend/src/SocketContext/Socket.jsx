@@ -10,7 +10,7 @@ export const SocketProvider = ({ children }) => {
     const dispatch = useDispatch();
     const [socket, setSocket] = useState(null);
 
-    const backendUrl = process.env.NODE_ENV === "production" ? "https://talkify-t4t1.onrender.com" : "http://localhost:3000";
+    const backendUrl = import.meta.env.Mode ==="development" ? "http://localhost:3000" : "/";
 
     useEffect(() => {
         if (!user) return;
