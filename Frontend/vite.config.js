@@ -8,12 +8,20 @@ export default defineConfig({
     tailwindcss()
   ],
   server: {
-    cors: {
-      origin: '*', // Allow all origins (not recommended for production)
-      credentials: true,
-      ws: true,
-      changeOrigin: true,
+    proxy: {
+      '/api': {
+        target: 'https://yourbackend.render.com',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/socket.io': {   // Proxy WebSockets correctly
+        target: 'https://yourbackend.render.com',
+        ws: true,  // Enable WebSocket support
+        changeOrigin: true,
+        secure: false,
+      }
     }
   }
+  
   
 })
