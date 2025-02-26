@@ -10,12 +10,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://yourbackend.render.com',
+        target: 'https://talkify-t4t1.onrender.com/',
         changeOrigin: true,
         secure: false,
       },
       '/socket.io': {   // Proxy WebSockets correctly
-        target: 'https://yourbackend.render.com',
+        target: 'https://talkify-t4t1.onrender.com/',
         ws: true,  // Enable WebSocket support
         changeOrigin: true,
         secure: false,
