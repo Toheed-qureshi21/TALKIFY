@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.common-links {
+    @apply flex items-center gap-2 p-2 hover:bg-zinc-950 rounded-md transition-all duration-300 text-lg;
+}
+
+button:hover {
+    cursor: pointer;
+}
+/* Hide the scrollbar but allow scrolling */
+.hide-scrollbar {
+    overflow-y: auto;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* For Webkit browsers (Chrome, Safari, Edge) */
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    scrollbar-width: none;  /* For Firefox */
+  }
+  
