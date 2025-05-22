@@ -48,6 +48,7 @@ const MessageForm = () => {
         }
         try {
               const newMessage =  await sendChatsFn(dispatch, id, {text,image:selectedImage})
+              console.log("Sending message via socket:", newMessage);
                 sendMessage(id, newMessage);
                 setText("")
                 setImagePreview(null)
