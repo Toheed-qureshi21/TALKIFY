@@ -5,6 +5,7 @@ import { IoMdSend } from "react-icons/io";
 import { sendChatsFn } from '../../API/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast'
+import { useSocket } from '../../SocketContext/Socket';
 
 const MessageForm = () => {
     const [imagePreview, setImagePreview] = useState(null)
@@ -12,6 +13,7 @@ const MessageForm = () => {
     const [selectedImage, setSelectedImage] = useState(null)
     const fileInputRef = useRef(null)
     const dispatch = useDispatch()
+    const {sendMessage} = useSocket()
     const {selectedUser} = useSelector((state) => state.chat)
  
     const id = selectedUser?._id
@@ -46,6 +48,7 @@ const MessageForm = () => {
         }
         try {
                 await sendChatsFn(dispatch, id, {text,image:selectedImage})
+                sendMessage(id, newMessage);
                 setText("")
                 setImagePreview(null)
                 setSelectedImage(null)

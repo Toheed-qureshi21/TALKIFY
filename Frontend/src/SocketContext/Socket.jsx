@@ -10,7 +10,7 @@ export const SocketProvider = ({ children }) => {
     const dispatch = useDispatch();
     const [socket, setSocket] = useState(null);
 
-    const backendUrl = import.meta.env.Mode ==="development" ? "http://localhost:3000" : "/";
+    const backendUrl = import.meta.env.VITE_SERVER_URL;
 
     useEffect(() => {
         if (!user) return;
@@ -41,9 +41,14 @@ export const SocketProvider = ({ children }) => {
         if (!socket) return;
         socket.off("newMessage", callback);
     };
+    const sendMessage = (receiverId, message) => {
+    if (!socket) return;
+    socket.emit("sendMessage", { receiverId, message });
+};
+
 
     return (
-        <SocketContext.Provider value={{ socket, subscribeToMessage, unsubscribeMessage }}>
+        <SocketContext.Provider value={{ socket, subscribeToMessage, unsubscribeMessage,sendMessage }}>
             {children}
         </SocketContext.Provider>
     );
