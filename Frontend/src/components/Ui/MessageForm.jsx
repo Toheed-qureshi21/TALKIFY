@@ -47,7 +47,7 @@ const MessageForm = () => {
             return toast.error("Please enter a message or select an image")
         }
         try {
-                await sendChatsFn(dispatch, id, {text,image:selectedImage})
+              const newMessage =  await sendChatsFn(dispatch, id, {text,image:selectedImage})
                 sendMessage(id, newMessage);
                 setText("")
                 setImagePreview(null)

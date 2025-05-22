@@ -98,7 +98,7 @@ export const getChatsFn = async (dispatch, id) => {
     }
 };
 
-export const sendChatsFn = async (dispatch, id, messageData) => {
+export const    sendChatsFn = async (dispatch, id, messageData) => {
 
     try {
         const { data } = await api.post(`/message/send/${id}`, messageData);
