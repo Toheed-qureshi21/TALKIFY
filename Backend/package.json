@@ -1,10 +1,10 @@
 {
   "name": "talkify",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node Backend/server.js",
-    "build": "npm install && cd Frontend && npm install && npm run build"
+    "start": "node server.js",
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",

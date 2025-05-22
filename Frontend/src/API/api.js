@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { authFailure, authStart, authSuccess, resetAuth } from '../slices/authSlice';
 import { getChats, getUsers, getUsersFailure, sendChats, setLoadingStates, setSelectedUser } from '../slices/chatSlice';
 
-const API = import.meta.env.Mode ==="development" ? "http://localhost:3000/api" : "/api";
+const API = `${import.meta.env.VITE_SERVER_URL}/api` 
 
 const api = axios.create({
     baseURL: API,

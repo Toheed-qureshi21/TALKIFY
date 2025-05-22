@@ -7,13 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  // server: {
-  //   cors: {
-  //     origin: '*', // Allow all origins (not recommended for production)
-  //     credentials: true,
-  //     ws: true,
-  //     changeOrigin: true,
-  //   }
-  // }
   
 })
